@@ -9,18 +9,22 @@ It also contains the public-facing URL for the email blast.
 The public-facing URL for the blast can be placed into a client's website as a way to let
 supporters see past blasts.
 
-The app is written in Python version 2.7, and old and creaky version that needs to be hauled off.
-However it's the version that appears in MacOSX, and all of the folks that would use this app in
-Salsa are on Macs.
+## Implementation Note
+
+In order for this app to be usefull to Salsa staffers, it's been developed in  Python version 2.7
+Python 2.7 is an old and creaky version that just needs to be hauled off.  However, it's the version that
+appears in MacOSX, and all of the folks that would use this app inSalsa are on Macs, so we're stuck with it.
 
 TL;DR
 
-This section is for folks that don't want to read the long version.  Use at your own risk.
+This section is for folks that don't no stinkin' installation docs.  Use at your own risk.
 
-I ain't sayin'.  I'm just sayin'...
+_Do not_ come whining to me if you use these steps and your computer blasts off into the ceiling,
+showering you with little bits of ceiling tile, insulation and concrete. Capisce?
 
-Open a terminal woindow.  Change the directory to the dir where you want the app's directory
-to live.  This demo uses ```Projects```.
+Open a terminal window and folow these steps.  You'll need a ```Projects``` directory in your homedir
+for this to be effective.
+
 
 ```
 sudo easy_install pip
@@ -45,8 +49,8 @@ The ```git``` app is the tool that's used to access a Github repository.  We nee
 because Salsa has stored the app in a git repository.  
 
 Finding and installing git is outside the scope of this document.  You might try using
-[BrewPub](https://brew.sh/).  A very good tool for installing software on a mac.  You can also
-go directoy to [the git site](https://git-scm.com/) and download the Mac version.
+[BrewPub](https://brew.sh/), an excellent tool for installing software on a Mac.  You can also
+go directoy to [the git site](https://git-scm.com/) and download from there.
 
 * Python version 2.7.
 
@@ -59,13 +63,12 @@ You should see something like this.
 
 ```Python 2.7.16```
 
-If
+You have the right version of Python if
 * the Python program exists, and
 * you get a message that says that the Python version is ```2.x```, where ```x``` is 7 or greater, and
 * you do not get a message that says that the version is ```3.x```
 
-then you have the correct version installed.  If you do not see those three things, then STOP.  Get help
-installing Python 2.7.
+If you do not see those three things, then STOP.  Get help installing Python 2.7.
 
 * Password for your Mac
 
@@ -73,12 +76,13 @@ If you are logged into your Mac, then you have the password for it.  If you're n
 STOP.  Contact IT Corporate Support.
 
 * Web Developer API token for Engage.
+
 _Caution_: If you haven't got a clue about what this means, then
 it's [time to read the doc](https://help.salsalabs.com/hc/en-us/articles/360001220274-General-Information)
 and [read the other doc](https://help.salsalabs.com/hc/en-us/articles/360001175053-Web-Developer-API-Overview).
 That will give you the info that you need to return the Web Developer API token.
 
-If you're still confused after reading the doc the STOP.  Get help.
+If you're still confused after reading the doc the STOP.  Get help from [SalsaSupport](mailto:support@salsalabs.com).
 
 # Installation
 
@@ -151,7 +155,7 @@ an error.  STOP.  Get help installing the libraries.
 
 1. Open a console window.
 2. Change to the directory where you want the app's directory to live.  We'll use the ```Projects```
-folder that appears in nearly everyone's home directory.
+folder that appears in nearly everyone's home directory.  Type this.
 ``` cd ~/Projects```.
 3. Retrieve the app directory from Github.
 ```git clone https://github.com/salsalabs/engage_blast_links.git```
@@ -176,8 +180,6 @@ Here's a more detailed definition of what goes into the YAML login file.
 |host  | Integration API host | (optional) defaults to api.salsalabs.org| ```host: hq-ua.igniter.bof```|
 |devToken| Web Developer API token| Required for this app |  ```devToken: REWQTERWEQR#$@#$@```|
 |devHost | Web Developer API host | (optional) defaults to dev-api.salsalabs.org| ```devHost: hq-ua.igniter.bof```|
-
-
 
 
 The best way to create this file is to use a text editor.  A good practice is to put a useful name on the file
@@ -215,7 +217,7 @@ token: devToken: REWQTERWEQR#$@#$@
 
 To extract the Enage blast information using "squirrel.yaml", type this.
 
-`python email_balst_links.py --login squirrell.yaml`
+`python email_balst_links.py --login squirrel.yaml`
 
 You'll see text like this:
 
@@ -268,7 +270,13 @@ Each line represents an email blast that has a URL.  Each line contains these fi
 | hasUrl | True |
 | url | The email blast's public-facing URL.  Can have a _bunch_ of embedded HTML |
 
-Questions?  Comments?
+# Cleanup
+
+You may want to delete the CSV file after you've sent it to the client.
+
+You _will defintely_ want to delete the login YAML file. Secure the client's interests, whack that file and empty the trash.
+
+# Questions?  Comments?
 
 If you have any questions or comments, then use the Issues link at the top of this repository.
 Do not both Salsa Customer Service with quesitons about this app.  It's their nesting season and
